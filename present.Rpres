@@ -539,7 +539,7 @@ Gibbs sampler
 title:false
 ## Gibbs sampler
 
-Continue with the code.
+Continue with the code on the GitHub repository.
 
 Gibbs sampler
 ========================================================
@@ -606,12 +606,12 @@ Stan example
 ========================================================
 title:false
 ## Stan example
-```{r}
+```{r, verbose=FALSE}
 # ground truth value
 theta = 0.2  
 
 # number of observations to simulate
-N = 10000000    
+N = 1000    
 
 y = rbinom(N, prob=theta, size=1)
 print(paste0("Proportion of sucesses = ", round(sum(y==1)/sum(y==0),2)))
@@ -626,11 +626,18 @@ title:false
 data_stan = list(N=N, y=y)
 
 # chose your working directory
-setwd("~/Dropbox/RLausanne")
+#setwd("~/Dropbox/RLausanne")
+setwd("C:/Users/semeel/Desktop/RLadiesLausanne-master/RLadiesLausanne-master")
 
 # name of the model file
 modname = "stan/bernoulli.stan"
+```
 
+Stan example
+========================================================
+title:false
+## Stan example
+```{r}
 # compile
 mod = stan_model(modname)
 ```
@@ -657,9 +664,13 @@ Using the draws
 ========================================================
 title:false
 ## Using the draws
-We can compute anything on them
-
-
+We can compute anything on them (see the code).
+<center>
+```{r,  echo=TRUE}
+pars = c('theta')
+stan_dens(fit, pars = pars)
+```
+</center>
 
 
 Examples of what one can do with R/Stan
@@ -673,7 +684,7 @@ It would be strange if I said nothing about my research. My PhD work includes:
 <img src="map1.png" height=200><img src="map2.png" height=200><img src="map3.png" height=200><img src="map4.png" height=200>
 </div>
 
-- time series modeling to perform outbreaks detection.
+- Bayesian count time series modeling to perform outbreaks detection.
 
 
 
